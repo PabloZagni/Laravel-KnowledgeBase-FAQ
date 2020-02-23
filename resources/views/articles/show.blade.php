@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="col-md-8 padding-20">
+<div class="col-md-12 padding-20">
     <div class="row">
         <!-- BREADCRUMBS -->
         <div class="breadcrumb-container">
@@ -15,7 +15,7 @@
                     <a href="{{ route('home') }}">Inicio</a>
                 </li>
                 <li>
-                    <a href="{{ route('categories.show', [$article->category->slug, $article->category->id]) }}">{{ $article->category->name }}</a>
+                    {{ $article->category->name }}
                 </li>
                 <li class="active">{{ $article->title }}</li>
             </ol>
@@ -30,27 +30,10 @@
                 <div class="art-date">
                     <i class="fa fa-calendar-o"></i> {{ $article->created_at }}
                 </div>
-                @if($article->category->count())
-                    <div class="art-category">
-                        <a href="{{ route('categories.show', [$article->category->slug, $article->category->id]) }}">
-                            <i class="fa fa-folder"></i> {{ $article->category->name }}
-                        </a>
-                    </div>
-                @endif
             </div>
             <div class="article-content">
                 {!! $article->full_text !!}
             </div>
-            @if($article->tags_count)
-                <div class="article-content">
-                    <div class="article-tags">
-                        <b>Tags:</b>
-                        @foreach($article->tags as $tag)
-                            <a href="{{ route('tags.show', [$tag->slug, $tag->id]) }}" class="btn btn-default btn-o btn-sm">{{ $tag->name }}</a>
-                        @endforeach
-                    </div>
-                </div>
-            @endif
         </div>
     </div>
 </div>
