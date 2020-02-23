@@ -12,7 +12,8 @@ class HomeController extends Controller
             ->with(['articles' => function($query) {
                 $query->orderBy('id', 'desc');
             }])
-            ->paginate(10);
+            ->get();
+            // ->paginate(10);
 
         return view('index', compact('categories'));
     }

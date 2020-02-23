@@ -11,36 +11,11 @@
     </head>
 
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="header">
-                    <div class="logo">
-                        <img src="{{ asset('images/logo.png') }}" alt="logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-
         @include('partials.nav')
-
-        @if(!isset($exception))
-            <div class="searchfield bg-hed-six">
-                <div class="container" style="padding-top: 20px; padding-bottom: 20px;">
-                    <div class="row text-center margin-bottom-20">
-                        <h1 class="white">{{ trans('panel.site_title') }}</h1>
-                        <span class="nested">Learn to use gomac</span>
-                    </div>
-                </div>
-            </div>
-        @endif
 
         <div class="container featured-area-default padding-30">
             <div class="row">
                 @yield('content')
-
-                @if(!isset($exception))
-                    @include('partials.sidebar')
-                @endif
             </div>
         </div>
 

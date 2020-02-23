@@ -1,6 +1,6 @@
 <?php
 
-Route::redirect('/home', '/admin');
+Route::redirect('/home', '/admin')->name('admin');
 Auth::routes(['register' => false]);
 
 Route::get('/', 'HomeController@index')->name('home');
